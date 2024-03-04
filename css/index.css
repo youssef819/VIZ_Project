@@ -20,8 +20,8 @@ body {
     background-color: black;
     background-image: url(main1.jpg);
     background-repeat: no-repeat;
-    background-position: 150px 700px;
-    background-size: 1180px 600px;
+    background-position: 20px 700px;
+    background-size: 1080px 600px;
 }
 
 #dates {
@@ -43,6 +43,32 @@ body {
     background-position: center;
 }
 
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  .left {
+    width: 25%;
+  }
+  
+  .right {
+    width: 75%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+
+
+
 .container {
     width: 100%;
     margin-left: 0%;
@@ -53,12 +79,22 @@ body {
 }
 .chart2 {
     right: 0%;
-}
+    transform: translateX(50%);
 
+}
+.chart3 {
+    position: absolute;
+    right: -2%;
+
+    transform: translateX(-40%);
+    transform: translateY(80%);
+
+
+}
 #teamDropdown {
     position: absolute;
-    bottom: 320px;
-    left: 30%;
+    bottom: 400px;
+    left: 10%;
     transform: translateX(-50%);
 }
 
@@ -140,7 +176,7 @@ body {
     position: absolute;
     left: 800px;
     transform: translateX(-50%);
-    bottom: 200px;
+    bottom: 350px;
     background-color: black;
     padding: 20px;
     border-radius: 5px;
@@ -195,6 +231,7 @@ body {
 }
 
 #file-container {
+    color: #fff;
     position: absolute;
     bottom: 400px;
     left: 1450px;

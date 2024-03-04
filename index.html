@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
   <div id="file-container" class="file-container">
     <h2 class="text-center mt-4 mb-4">Import the file</h2>
     <input type="file" id="excel_file" />
@@ -25,7 +26,7 @@
 		<label for="uefacom"></label>
 	</div>
 </div>
-<div id="team">  
+<div id="team">  </div>
 
 <div id="teamSelect">
   <div>
@@ -40,23 +41,14 @@
   <div id="no-seasons-message" style="text-align: center; color: #fff; font-size: 9px; display: none;">No seasons found in the spreadsheet.</div>
 </div>
 
-</div>
-<div class="container"> 
-    <div class="chart1">
-        <p>Box 1 content goes here</p>
+<div class='container' style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+    <div class="chart1"></div>
+    <div class="chart2"></div>
+    <div class="chart3"></div>
 
-    </div>
-
-    <div class="chart2">
-            <p>Box 2 content goes here</p>
-
-    </div>
 </div>
 
-
-
-<div>
-    <script>
+<script>
 const excel_file = document.getElementById('excel_file');
   const teamDropdown = document.getElementById("teamDropdown");
   const divAnneeListe = document.getElementById("anneeListe");
@@ -209,7 +201,7 @@ excel_file.addEventListener('change', (event) => {
     // Apply styles directly using JavaScript
     teamElement.style.position = 'absolute';
     teamElement.style.top = '5%';
-    teamElement.style.left = '0%';
+    teamElement.style.left = '3.5%';
     teamElement.style.height = '80%';
     teamElement.style.width = '25%';
     teamElement.style.backgroundImage = 'url(css/'+team_to_select+')';
@@ -217,33 +209,33 @@ excel_file.addEventListener('change', (event) => {
     teamElement.style.backgroundRepeat = 'no-repeat';
     teamElement.style.backgroundPosition = '10px 0px';
 
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
     data=get_all_team_matchs_data(goals,players,matchs,team,season)
+
+    if(data!='False'){
     draw_pitch(data,".chart1") 
     console.log(data)
-    const myDiv = document.getElementsByClassName("chart2");
-
 
     piechart(matchs, season, team,".chart2")
+    Plot_barchart(data,".chart3")
 
+    }else{
+
+        var chart1 = d3.select(".chart1")
+        var chart2 = d3.select(".chart2")
+        var chart3 = d3.select(".chart3")
+
+        var svg1 = chart1.select("svg");
+        svg1.selectAll("*").remove();
+
+        var svg2 = chart2.select("svg");
+        svg2.selectAll("*").remove();
+
+        var svg3 = chart3.select("svg");
+        svg3.selectAll("*").remove();
+
+
+    }
 }    </script>
-
-  </div>
-</div>
-
 
 </body>
 
